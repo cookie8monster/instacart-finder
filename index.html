@@ -250,9 +250,10 @@ function useZip() {
 
 async function reverseGeocode(lat, lng) {
   try {
-    const r = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`, {
-      headers: { 'Accept-Language': 'en' }
-    });
+    const r = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&email=tech@purelyelizabeth.com`,
+      { headers: { 'Accept-Language': 'en' } }
+    );
     const d = await r.json();
     return d?.address?.postcode?.slice(0, 5) || null;
   } catch { return null; }
