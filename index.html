@@ -181,10 +181,10 @@ const BASE_URL = 'https://connect.instacart.com/idp/v1';
 const HEADERS  = { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' };
 
 const PE_LINE_ITEMS = [
-  { name: 'Purely Elizabeth Granola',        quantity: 1 },
-  { name: 'Purely Elizabeth Oatmeal',        quantity: 1 },
-  { name: 'Purely Elizabeth Protein Oatmeal', quantity: 1 },
-  { name: 'Purely Elizabeth Cereal',         quantity: 1 },
+  { name: 'Granola',         quantity: 1, filters: { brand_filters: ['Purely Elizabeth'] } },
+  { name: 'Oatmeal',         quantity: 1, filters: { brand_filters: ['Purely Elizabeth'] } },
+  { name: 'Protein Oatmeal', quantity: 1, filters: { brand_filters: ['Purely Elizabeth'] } },
+  { name: 'Cereal',          quantity: 1, filters: { brand_filters: ['Purely Elizabeth'] } },
 ];
 
 let currentPostalCode = null;
@@ -292,6 +292,7 @@ async function openShopLink() {
   try {
     const body = {
       title: 'Purely Elizabeth Products',
+      landing_page_configuration: { partner_linkback_url: 'https://purelyelizabeth.com' },
       line_items: PE_LINE_ITEMS,
       expires_in: 365,
     };
