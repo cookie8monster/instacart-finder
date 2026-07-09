@@ -274,7 +274,7 @@ function renderResults(retailers, postalCode) {
       🛒 Shop all Purely Elizabeth products on Instacart →
     </button>
     <div class="retailer-grid">${retailers.map(r => `
-      <div class="retailer-card" onclick="openShopLink()">
+      <div class="retailer-card" onclick="openRetailerLink('${r.retailer_key}')">
         <img class="retailer-logo" src="${r.retailer_logo_url}" alt="${r.name}" onerror="this.style.display='none'">
         <div>
           <div class="retailer-name">${r.name}</div>
@@ -282,6 +282,12 @@ function renderResults(retailers, postalCode) {
         </div>
       </div>`).join('')}
     </div>`;
+}
+
+function openRetailerLink(retailerKey) {
+  if (!retailerKey) { openShopLink(null); return; }
+  const url = `https://www.instacart.com/store/${retailerKey}/s?k=purely+elizabeth`;
+  window.open(url, '_blank');
 }
 
 let cachedShopUrl = null;
