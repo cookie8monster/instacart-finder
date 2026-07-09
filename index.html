@@ -261,6 +261,7 @@ async function reverseGeocode(lat, lng) {
 
 async function loadRetailers(postalCode) {
   currentPostalCode = postalCode;
+  cachedShopUrl = null;
   setStatus('');
   const el = document.getElementById('results');
   el.style.display = 'block';
@@ -291,7 +292,7 @@ function renderResults(retailers, postalCode) {
       🛒 Shop all Purely Elizabeth products on Instacart →
     </button>
     <div class="retailer-grid">${retailers.map(r => `
-      <div class="retailer-card" onclick="window.open('https://www.instacart.com/store/${r.retailer_key}/search?query=purely+elizabeth','_blank')">
+      <div class="retailer-card" onclick="openShopLink()">
         <img class="retailer-logo" src="${r.retailer_logo_url}" alt="${r.name}" onerror="this.style.display='none'">
         <div>
           <div class="retailer-name">${r.name}</div>
@@ -301,21 +302,26 @@ function renderResults(retailers, postalCode) {
     </div>`;
 }
 
-async function openShopLink(retailerKey) {
+let cachedShopUrl = null;
+
+async function openShopLink() {
+  if (cachedShopUrl) { window.open(cachedShopUrl, '_blank'); return; }
   setStatus('Generating your Instacart cart…');
   try {
     const body = {
       title: 'Purely Elizabeth Products',
       line_items: PE_LINE_ITEMS,
-      expires_in: 30,
+      expires_in: 365,
     };
-
     const r = await fetch(`${BASE_URL}/products/products_link`, {
       method: 'POST', headers: HEADERS, body: JSON.stringify(body)
     });
     const d = await r.json();
-    if (d.products_link_url) { setStatus(''); window.open(d.products_link_url, '_blank'); }
-    else { setStatus('Could not generate link. Please try again.'); }
+    if (d.products_link_url) {
+      cachedShopUrl = d.products_link_url;
+      setStatus('');
+      window.open(cachedShopUrl, '_blank');
+    } else { setStatus('Could not generate link. Please try again.'); }
   } catch { setStatus('Error. Please try again.'); }
 }
 
