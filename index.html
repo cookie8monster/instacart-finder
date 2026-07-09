@@ -290,7 +290,7 @@ function renderResults(retailers, postalCode) {
       🛒 Shop all Purely Elizabeth products on Instacart →
     </button>
     <div class="retailer-grid">${retailers.map(r => `
-      <div class="retailer-card" onclick="openShopLink('${r.retailer_key}')">
+      <div class="retailer-card" onclick="window.open('https://www.instacart.com/store/${r.retailer_key}/search?query=purely+elizabeth','_blank')">
         <img class="retailer-logo" src="${r.retailer_logo_url}" alt="${r.name}" onerror="this.style.display='none'">
         <div>
           <div class="retailer-name">${r.name}</div>
