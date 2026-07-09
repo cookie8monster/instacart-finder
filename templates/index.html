@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Purely Elizabeth Near You</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #faf8f4;
+    color: #3a2e28;
+    min-height: 100vh;
+  }
+
+  header {
+    background: #fff;
+    border-bottom: 1px solid #e8e0d6;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  header img { height: 36px; }
+  header h1 { font-size: 1.05rem; font-weight: 700; color: #3a2e28; }
+  header p  { font-size: 0.78rem; color: #8a7a70; margin-top: 2px; }
+
+  .hero {
+    background: linear-gradient(135deg, #f5ede4 0%, #e8f5e9 100%);
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .hero h2  { font-size: 1.55rem; font-weight: 800; color: #3a2e28; margin-bottom: 8px; }
+  .hero p   { font-size: 0.9rem; color: #6b5e55; max-width: 440px; margin: 0 auto 28px; }
+
+  .locate-btn {
+    background: #43A047;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.18s;
+  }
+  .locate-btn:hover { background: #388E3C; }
+  .locate-btn:disabled { background: #aaa; cursor: default; }
+
+  .or-divider { margin: 16px 0; font-size: 0.78rem; color: #aaa; }
+
+  .zip-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .zip-row input {
+    border: 1.5px solid #d4c8be;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    width: 140px;
+    background: #fff;
+    color: #3a2e28;
+    outline: none;
+  }
+  .zip-row input:focus { border-color: #43A047; }
+  .zip-row button {
+    background: #3a2e28;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+  }
+  .zip-row button:hover { background: #5a4e48; }
+
+  #status {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #8a7a70;
+    margin-top: 14px;
+    min-height: 20px;
+  }
+
+  .results { max-width: 800px; margin: 32px auto; padding: 0 16px 48px; }
+
+  .results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .results-header h3 { font-size: 1rem; font-weight: 700; }
+  .results-header span { font-size: 0.78rem; color: #8a7a70; }
+
+  .shop-all-btn {
+    display: block;
+    width: 100%;
+    background: #43A047;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: background 0.18s;
+  }
+  .shop-all-btn:hover { background: #388E3C; }
+
+  .retailer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .retailer-card {
+    background: #fff;
+    border: 1.5px solid #e8e0d6;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .retailer-card:hover {
+    border-color: #43A047;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+  }
+  .retailer-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f5f5f5;
+    flex-shrink: 0;
+  }
+  .retailer-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .retailer-tag {
+    font-size: 0.68rem;
+    color: #43A047;
+    margin-top: 3px;
+  }
+
+  .empty-msg {
+    text-align: center;
+    color: #8a7a70;
+    padding: 40px 0;
+    font-size: 0.88rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Purely Elizabeth</h1>
+    <p>Find products available for delivery near you</p>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>Get it delivered today</h2>
+  <p>See which stores near you carry Purely Elizabeth products on Instacart — delivered in as fast as 2 hours.</p>
+
+  <button class="locate-btn" id="locate-btn" onclick="useLocation()">
+    <span>📍</span> Use my location
+  </button>
+
+  <div class="or-divider">— or enter your ZIP code —</div>
+
+  <div class="zip-row">
+    <input type="text" id="zip-input" placeholder="e.g. 10001" maxlength="5">
+    <button onclick="useZip()">Search</button>
+  </div>
+
+  <div id="status"></div>
+</div>
+
+<div class="results" id="results" style="display:none"></div>
+
+<script>
+let currentPostalCode = null;
+
+function setStatus(msg) {
+  document.getElementById('status').textContent = msg;
+}
+
+function useLocation() {
+  const btn = document.getElementById('locate-btn');
+  btn.disabled = true;
+  btn.textContent = 'Locating…';
+  setStatus('Requesting location access…');
+
+  if (!navigator.geolocation) {
+    setStatus('Geolocation not supported by your browser. Please enter a ZIP code.');
+    btn.disabled = false;
+    btn.innerHTML = '<span>📍</span> Use my location';
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const { latitude, longitude } = pos.coords;
+      setStatus('Got your location — finding your ZIP code…');
+      reverseGeocode(latitude, longitude)
+        .then(zip => {
+          if (zip) {
+            document.getElementById('zip-input').value = zip;
+            loadRetailers(zip);
+          } else {
+            setStatus('Could not determine ZIP code. Please enter it manually.');
+          }
+          btn.disabled = false;
+          btn.innerHTML = '<span>📍</span> Use my location';
+        });
+    },
+    err => {
+      const msgs = {
+        1: 'Location access denied. Please enter a ZIP code.',
+        2: 'Location unavailable. Please enter a ZIP code.',
+        3: 'Location request timed out. Please enter a ZIP code.',
+      };
+      setStatus(msgs[err.code] || 'Location error. Please enter a ZIP code.');
+      btn.disabled = false;
+      btn.innerHTML = '<span>📍</span> Use my location';
+    },
+    { timeout: 10000, maximumAge: 60000 }
+  );
+}
+
+function useZip() {
+  const zip = document.getElementById('zip-input').value.trim();
+  if (!/^\d{5}$/.test(zip)) {
+    setStatus('Please enter a valid 5-digit US ZIP code.');
+    return;
+  }
+  loadRetailers(zip);
+}
+
+async function reverseGeocode(lat, lng) {
+  try {
+    const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
+    const r = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+    const d = await r.json();
+    return d?.address?.postcode?.slice(0, 5) || null;
+  } catch {
+    return null;
+  }
+}
+
+async function loadRetailers(postalCode) {
+  currentPostalCode = postalCode;
+  setStatus(`Searching for stores near ${postalCode}…`);
+  document.getElementById('results').style.display = 'none';
+
+  try {
+    const r = await fetch(`/api/retailers?postal_code=${postalCode}&country_code=US`);
+    const d = await r.json();
+
+    if (d.error) {
+      setStatus(`Error: ${d.error.message || 'Unknown error'}`);
+      return;
+    }
+
+    const retailers = d.retailers || [];
+    setStatus('');
+    renderResults(retailers, postalCode);
+  } catch(e) {
+    setStatus('Failed to load retailers. Please try again.');
+  }
+}
+
+function renderResults(retailers, postalCode) {
+  const el = document.getElementById('results');
+  el.style.display = 'block';
+
+  if (!retailers.length) {
+    el.innerHTML = `<div class="empty-msg">No Instacart retailers found near ${postalCode}.<br>Try a different ZIP code.</div>`;
+    return;
+  }
+
+  el.innerHTML = `
+    <div class="results-header">
+      <h3>Stores near ${postalCode}</h3>
+      <span>${retailers.length} retailers on Instacart</span>
+    </div>
+    <button class="shop-all-btn" onclick="shopAll()">
+      🛒 Shop all Purely Elizabeth products on Instacart →
+    </button>
+    <div class="retailer-grid" id="retailer-grid"></div>
+  `;
+
+  const grid = document.getElementById('retailer-grid');
+  grid.innerHTML = retailers.map(r => `
+    <div class="retailer-card" onclick="shopAtRetailer('${r.retailer_key}', '${r.name.replace(/'/g,"\\'")}')">
+      <img class="retailer-logo" src="${r.retailer_logo_url}" alt="${r.name}" onerror="this.style.display='none'">
+      <div>
+        <div class="retailer-name">${r.name}</div>
+        <div class="retailer-tag">Shop PE products →</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function shopAll() {
+  await openShopLink(null);
+}
+
+async function shopAtRetailer(retailerKey, retailerName) {
+  await openShopLink(retailerKey);
+}
+
+async function openShopLink(retailerKey) {
+  setStatus('Generating your Instacart cart…');
+  try {
+    const r = await fetch('/api/shop-link', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ postal_code: currentPostalCode, retailer_key: retailerKey }),
+    });
+    const d = await r.json();
+    if (d.products_link_url) {
+      setStatus('');
+      window.open(d.products_link_url, '_blank');
+    } else {
+      setStatus('Could not generate Instacart link. Please try again.');
+    }
+  } catch {
+    setStatus('Error generating link. Please try again.');
+  }
+}
+
+// Allow Enter key in ZIP input
+document.getElementById('zip-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') useZip();
+});
+</script>
+</body>
+</html>
