@@ -172,12 +172,12 @@
 <div class="results" id="results" style="display:none"></div>
 
 <script>
-// Production key + endpoint
-const API_KEY  = 'keys.VEcDoDj0RNmIni5MffpBh7LoWC24Jk8tXTha5qSgICk';
-const BASE_URL = 'https://connect.instacart.com/idp/v1';
-// Dev fallback (sandbox only — no real product data):
-// const API_KEY  = 'keys._XddmzVXMxYscOfhvVZs-QKJJ4h1LUC6F2I2Y6qrpH0';
-// const BASE_URL = 'https://connect.dev.instacart.tools/idp/v1';
+// Dev key — active while production key awaits Instacart approval
+const API_KEY  = 'keys._XddmzVXMxYscOfhvVZs-QKJJ4h1LUC6F2I2Y6qrpH0';
+const BASE_URL = 'https://connect.dev.instacart.tools/idp/v1';
+// Production key (pending Instacart activation — swap in once approved):
+// const API_KEY  = 'keys.VEcDoDj0RNmIni5MffpBh7LoWC24Jk8tXTha5qSgICk';
+// const BASE_URL = 'https://connect.instacart.com/idp/v1';
 const HEADERS  = { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' };
 
 const PE_UPCS = [
