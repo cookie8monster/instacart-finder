@@ -180,16 +180,29 @@ const BASE_URL = 'https://connect.instacart.com/idp/v1';
 // const BASE_URL = 'https://connect.dev.instacart.tools/idp/v1';
 const HEADERS  = { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' };
 
-const PE_UPCS = [
-  '855140002168','855140002175','855140002151','855140002144',
-  '855140002984','855140002991','855140002656','855140002663',
-  '855140002687','855140002700','855140002724',
-  '810589031971','810589031964','810589031988','810589032039',
-  '810589032015','810589032220','810589032244','810589032183',
-  '810589032541','810589032596','810589032602','810589032619',
-  '810589032411','810589032435','810589032459',
-  '810589032794','810589032800',
-  '810589030035','810589031698','810589031940','810589031957','810589032688',
+const PE_LINE_ITEMS = [
+  { name: 'Purely Elizabeth Ancient Grain Granola',
+    upcs: ['855140002168','855140002175','855140002151','855140002144',
+           '855140002984','855140002991','855140002656','855140002663',
+           '855140002687'], quantity: 1 },
+  { name: 'Purely Elizabeth Grain Free Granola',
+    upcs: ['810589030295','810589030301','855140002700','855140002724'], quantity: 1 },
+  { name: 'Purely Elizabeth Cookie Granola',
+    upcs: ['810589031971','810589031964','810589031988','810589032039',
+           '810589032015','810589032220','810589032244','810589032183',
+           '810589032541'], quantity: 1 },
+  { name: 'Purely Elizabeth Protein Granola',
+    upcs: ['810589032596','810589032602','810589032619'], quantity: 1 },
+  { name: 'Purely Elizabeth Protein Oatmeal',
+    upcs: ['810589032411','810589032435','810589032459',
+           '810589032794','810589032800'], quantity: 1 },
+  { name: 'Purely Elizabeth Superfood Oatmeal',
+    upcs: ['081058903034','081058903167','081058903174','810589031735',
+           '810589031742','810589031070','810589031087','810589030332',
+           '810589031629','810589031636'], quantity: 1 },
+  { name: 'Purely Elizabeth Superfood Cereal',
+    upcs: ['810589030035','810589031698','810589031940',
+           '810589031957','810589032688'], quantity: 1 },
 ];
 
 let currentPostalCode = null;
@@ -292,10 +305,9 @@ async function openShopLink(retailerKey) {
   try {
     const body = {
       title: 'Purely Elizabeth Products',
-      line_items: [{ name: 'Purely Elizabeth', upcs: PE_UPCS, quantity: 1 }],
+      line_items: PE_LINE_ITEMS,
       expires_in: 30,
     };
-    if (retailerKey) body.retailer_key = retailerKey;
 
     const r = await fetch(`${BASE_URL}/products/products_link`, {
       method: 'POST', headers: HEADERS, body: JSON.stringify(body)
