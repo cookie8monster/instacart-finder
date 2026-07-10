@@ -18,9 +18,6 @@
     background: #fff;
     border-bottom: 1px solid #e8e0d6;
     padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
   }
   header h1 { font-size: 1.05rem; font-weight: 700; }
   header p  { font-size: 0.78rem; color: #8a7a70; margin-top: 2px; }
@@ -54,66 +51,43 @@
 
   .zip-row { display: flex; justify-content: center; gap: 8px; }
   .zip-row input {
-    border: 1.5px solid #d4c8be;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 0.9rem;
-    width: 140px;
-    background: #fff;
-    color: #3a2e28;
-    outline: none;
+    border: 1.5px solid #d4c8be; border-radius: 8px;
+    padding: 10px 14px; font-size: 0.9rem; width: 140px;
+    background: #fff; color: #3a2e28; outline: none;
   }
   .zip-row input:focus { border-color: #43A047; }
   .zip-row button {
-    background: #3a2e28;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    cursor: pointer;
+    background: #3a2e28; color: #fff; border: none;
+    border-radius: 8px; padding: 10px 20px;
+    font-size: 0.88rem; font-weight: 600; cursor: pointer;
   }
   .zip-row button:hover { background: #5a4e48; }
 
   #status {
-    text-align: center;
-    font-size: 0.82rem;
-    color: #8a7a70;
-    margin-top: 14px;
-    min-height: 20px;
+    text-align: center; font-size: 0.82rem; color: #8a7a70;
+    margin-top: 14px; min-height: 20px;
   }
 
   .results { max-width: 880px; margin: 32px auto; padding: 0 16px 64px; }
 
   .section-hd {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 16px;
+    display: flex; align-items: baseline;
+    justify-content: space-between; margin-bottom: 16px;
   }
   .section-hd h3   { font-size: 1rem; font-weight: 700; }
   .section-hd span { font-size: 0.78rem; color: #8a7a70; }
 
   /* Shop all button */
   .shop-all-btn {
-    display: block;
-    width: 100%;
-    background: #43A047;
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    padding: 14px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: background 0.18s;
+    display: block; width: 100%; background: #43A047; color: #fff;
+    border: none; border-radius: 12px; padding: 14px;
+    font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    margin-bottom: 20px; transition: background 0.18s;
   }
   .shop-all-btn:hover    { background: #388E3C; }
   .shop-all-btn:disabled { background: #aaa; cursor: default; }
 
-  /* Retailer grid */
+  /* ── Retailer grid ── */
   .retailer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -125,62 +99,68 @@
     background: #fff;
     border: 1.5px solid #e8e0d6;
     border-radius: 14px;
-    padding: 16px;
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     cursor: pointer;
     transition: border-color 0.15s, box-shadow 0.15s;
-    position: relative;
-    overflow: hidden;
   }
   .retailer-card:hover {
     border-color: #43A047;
     box-shadow: 0 3px 12px rgba(67,160,71,0.14);
   }
+
   .retailer-card-top {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 11px;
   }
   .retailer-logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 10px;
-    background: #f5f5f5;
-    flex-shrink: 0;
+    width: 44px; height: 44px; object-fit: contain;
+    border-radius: 10px; background: #f5f5f5; flex-shrink: 0;
   }
-  .retailer-name { font-size: 0.88rem; font-weight: 700; line-height: 1.3; }
-  .retailer-meta { font-size: 0.7rem; color: #8a7a70; margin-top: 2px; }
+  .retailer-info { flex: 1; min-width: 0; }
+  .retailer-name { font-size: 0.86rem; font-weight: 700; line-height: 1.3; }
+  .retailer-meta { font-size: 0.68rem; color: #8a7a70; margin-top: 2px; }
+  .retailer-dist {
+    font-size: 0.72rem; font-weight: 700; color: #43A047;
+    background: #f0faf0; border: 1px solid #c8e6c9;
+    border-radius: 20px; padding: 3px 8px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .retailer-dist.loading { color: #aaa; background: #f5f5f5; border-color: #e0e0e0; }
+
+  /* Mini product strip on store cards */
+  .retailer-products {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .mini-thumb {
+    width: 36px; height: 36px; border-radius: 6px;
+    object-fit: contain; background: #f5f5f0;
+    border: 1px solid #ede8e2; flex-shrink: 0;
+  }
+  .mini-more {
+    font-size: 0.65rem; color: #8a7a70;
+    white-space: nowrap; margin-left: 2px;
+  }
+
   .retailer-shop-btn {
-    display: block;
-    width: 100%;
-    background: #f0faf0;
-    color: #2e7d32;
-    border: 1.5px solid #c8e6c9;
-    border-radius: 8px;
-    padding: 7px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-align: center;
-    transition: background 0.15s;
+    display: block; width: 100%;
+    background: #f0faf0; color: #2e7d32;
+    border: 1.5px solid #c8e6c9; border-radius: 8px;
+    padding: 7px; font-size: 0.75rem; font-weight: 700;
+    cursor: pointer; text-align: center; transition: background 0.15s;
   }
   .retailer-shop-btn:hover { background: #e0f2e1; }
 
   .expand-btn {
-    display: block;
-    width: 100%;
-    background: none;
-    border: 1.5px solid #e8e0d6;
-    border-radius: 10px;
-    padding: 11px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #5a4e48;
-    cursor: pointer;
-    margin-bottom: 32px;
+    display: block; width: 100%; background: none;
+    border: 1.5px solid #e8e0d6; border-radius: 10px;
+    padding: 11px; font-size: 0.82rem; font-weight: 600;
+    color: #5a4e48; cursor: pointer; margin-bottom: 32px;
     transition: background 0.15s, border-color 0.15s;
   }
   .expand-btn:hover { background: #f5f0ea; border-color: #c8b8ae; }
@@ -188,70 +168,60 @@
   /* Divider */
   .section-divider { border: none; border-top: 1.5px solid #e8e0d6; margin: 0 0 32px; }
 
-  /* Product cards */
+  /* ── Category tabs ── */
+  .cat-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+  }
+  .cat-tab {
+    background: #fff; border: 1.5px solid #e8e0d6;
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 0.75rem; font-weight: 600; color: #5a4e48;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+  }
+  .cat-tab:hover   { border-color: #43A047; color: #2e7d32; }
+  .cat-tab.active  { background: #43A047; border-color: #43A047; color: #fff; }
+
+  /* ── Product grid ── */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 14px;
   }
 
   .product-card {
-    background: #fff;
-    border: 1.5px solid #e8e0d6;
-    border-radius: 14px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    background: #fff; border: 1.5px solid #e8e0d6;
+    border-radius: 14px; overflow: hidden;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .product-card:hover {
     border-color: #43A047;
     box-shadow: 0 3px 10px rgba(67,160,71,0.12);
   }
+  .product-card[hidden] { display: none; }
+
   .product-card-img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-    background: #f5f5f0;
-    display: block;
-    padding: 10px;
+    width: 100%; aspect-ratio: 1/1; object-fit: contain;
+    background: #f5f5f0; display: block; padding: 10px;
   }
   .product-card-body {
     padding: 10px 12px 12px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    display: flex; flex-direction: column; flex: 1;
   }
   .product-card-tag {
-    font-size: 0.62rem;
-    color: #43A047;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    margin-bottom: 4px;
+    font-size: 0.62rem; color: #43A047; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 4px;
   }
   .product-card-name {
-    font-size: 0.79rem;
-    font-weight: 700;
-    line-height: 1.35;
-    flex: 1;
-    margin-bottom: 10px;
+    font-size: 0.79rem; font-weight: 700;
+    line-height: 1.35; flex: 1; margin-bottom: 6px;
   }
-  .product-card-size {
-    font-size: 0.68rem;
-    color: #8a7a70;
-    margin-bottom: 8px;
-  }
+  .product-card-size { font-size: 0.68rem; color: #8a7a70; margin-bottom: 10px; }
   .product-card-cta {
-    display: block;
-    width: 100%;
-    background: #43A047;
-    color: #fff;
-    border-radius: 8px;
-    padding: 8px 4px;
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-align: center;
+    display: block; width: 100%; background: #43A047; color: #fff;
+    border-radius: 8px; padding: 8px 4px;
+    font-size: 0.74rem; font-weight: 700; text-align: center;
   }
   .product-card:hover .product-card-cta { background: #388E3C; }
 
@@ -262,10 +232,8 @@
 <body>
 
 <header>
-  <div>
-    <h1>Purely Elizabeth</h1>
-    <p>Find products available for delivery near you</p>
-  </div>
+  <h1>Purely Elizabeth</h1>
+  <p>Find products available for delivery near you</p>
 </header>
 
 <div class="hero">
@@ -291,105 +259,133 @@
 <script>
 const API_KEY  = 'keys.VEcDoDj0RNmIni5MffpBh7LoWC24Jk8tXTha5qSgICk';
 const BASE_URL = 'https://connect.instacart.com/idp/v1';
-// Dev fallback:
-// const API_KEY  = 'keys._XddmzVXMxYscOfhvVZs-QKJJ4h1LUC6F2I2Y6qrpH0';
-// const BASE_URL = 'https://connect.dev.instacart.tools/idp/v1';
 const HEADERS  = { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' };
+const CDN      = 'https://cdn.shopify.com/s/files/1/0264/3725/5250/files/';
 
-const CDN = 'https://cdn.shopify.com/s/files/1/0264/3725/5250/files/';
-
-// Scraped 2026-07-10 — 49 products. Featured 8 shown in grid.
-// evergreen field = Instacart product slug → direct product URL, no API call needed.
+// Scraped 2026-07-10 — 49 Instacart products. Featured set for the grid.
 const PE_PRODUCTS = [
-  {
-    name: 'Peanut Butter Cookie Granola',
-    tag: 'Cookie Granola', size: '11 oz',
-    img: CDN + 'PBCookieV2_Hero.webp?v=1749060545',
-    id: 55766632,
-    evergreen: '55766632-purely-elizabeth-peanut-butter-recipe-no-37-cookie-granola-11-oz',
-  },
-  {
-    name: 'Chocolate Chip Cookie Granola',
-    tag: 'Cookie Granola', size: '11 oz',
-    img: CDN + 'CookieVarietyV2_Hero.webp?v=1749060842',
-    id: 41662372,
-    evergreen: '41662372-purely-elizabeth-cookie-granola-chocolate-chip-1-bags',
-  },
-  {
-    name: 'Dark Chocolate Blueberry Protein Granola',
-    tag: 'Protein Granola', size: '8 oz',
-    img: CDN + 'ProteinG_DarkChocolateBlueberry_V1_Hero.webp?v=1774023806',
-    id: 105690200,
-    evergreen: '105690200-purely-eliza-dark-c-8-oz',
-  },
-  {
-    name: 'Almond Butter & Berries Protein Granola',
-    tag: 'Protein Granola', size: '8 oz',
-    img: CDN + 'ProteinG_AlmondButterBerries_V1_Hero.webp?v=1774023586',
-    id: 109829841,
-    evergreen: '109829841-purely-elizabeth-protein-ancient-grain-almond-butter-berries-granola-8-0-oz',
-  },
-  {
-    name: 'Maple Cinnamon Roll Protein Oatmeal',
-    tag: 'Protein Oatmeal', size: '8.3 oz',
-    img: CDN + 'ProteinOatmealCupV1.1_ProteinOat_MCR_Hero.webp?v=1774371696',
-    id: 74974608,
-    evergreen: '74974608-purz-mplcin-otml-76z',
-  },
-  {
-    name: 'Apple Harvest Crumble Protein Oatmeal',
-    tag: 'Protein Oatmeal', size: '8.3 oz',
-    img: CDN + 'ProteinOatmealCupV1.1_ProteinOat_ACH_Hero.webp?v=1774371927',
-    id: 75086124,
-    evergreen: '75086124-purely-elizabeth-protein-apple-harvest-crumble-instant-oatmeal',
-  },
-  {
-    name: 'Original Superfood Oatmeal Pouch',
-    tag: 'Superfood Oatmeal', size: '10 oz',
-    img: CDN + '220z_Oatmeal_Original_Pouch_V1.1_Hero.webp?v=1782494066',
-    id: 135058,
-    evergreen: '135058-purely-elizabeth-superfood-oatmeal-original-10-oz',
-  },
-  {
-    name: 'Cinnamon Raisin Almond Superfood Cereal',
-    tag: 'Superfood Cereal', size: '11 oz',
-    img: CDN + 'CinnamonRaisinAlmondV3.1_Hero_0faf22eb-160f-40d1-a027-e241bb011170.webp?v=1777048187',
-    id: 41052867,
-    evergreen: '41052867-purely-elizabeth-cinnamon-raisin-cereal-11-oz',
-  },
+  // Cookie Granola
+  { name: 'Peanut Butter Cookie Granola',          tag: 'Cookie Granola',     size: '11 oz', id: 55766632,  img: CDN+'PBCookieV2_Hero.webp?v=1749060545',                                                              evergreen: '55766632-purely-elizabeth-peanut-butter-recipe-no-37-cookie-granola-11-oz' },
+  { name: 'Chocolate Chip Cookie Granola',          tag: 'Cookie Granola',     size: '11 oz', id: 41662372,  img: CDN+'CookieVarietyV2_Hero.webp?v=1749060842',                                                         evergreen: '41662372-purely-elizabeth-cookie-granola-chocolate-chip-1-bags' },
+  { name: 'Oatmeal Raisin Cookie Granola',          tag: 'Cookie Granola',     size: '11 oz', id: 41662624,  img: CDN+'CookieVarietyV2_Hero.webp?v=1749060842',                                                         evergreen: '41662624-purely-elizabeth-oatmeal-raisin-cookie-granola-1-each' },
+  // Protein Granola
+  { name: 'Dark Chocolate Blueberry Protein Granola', tag: 'Protein Granola', size: '8 oz',  id: 105690200, img: CDN+'ProteinG_DarkChocolateBlueberry_V1_Hero.webp?v=1774023806',                                       evergreen: '105690200-purely-eliza-dark-c-8-oz' },
+  { name: 'Almond Butter & Berries Protein Granola',  tag: 'Protein Granola', size: '8 oz',  id: 109829841, img: CDN+'ProteinG_AlmondButterBerries_V1_Hero.webp?v=1774023586',                                          evergreen: '109829841-purely-elizabeth-protein-ancient-grain-almond-butter-berries-granola-8-0-oz' },
+  { name: 'Cinnamon Toast Protein Granola',           tag: 'Protein Granola', size: '8 oz',  id: 105690571, img: CDN+'ProteinG_CinnamonToast_V1_Hero.webp?v=1774023969',                                               evergreen: '105690571-purely-eliza-cinnam-8-oz' },
+  // Ancient Grain Granola
+  { name: 'Chocolate Peanut Butter Ancient Grain Granola', tag: 'Ancient Grain', size: '10 oz', id: 17633601, img: CDN+'ChocolatPeanutButterV2_Hero.webp?v=1748031191',                                                  evergreen: '17633601-purely-elizabeth-ancient-grain-granola-grain-free-chocolate-peanut-butter-10-oz' },
+  { name: 'Maple Almond Butter Ancient Grain Granola',     tag: 'Ancient Grain', size: '10 oz', id: 17632106, img: CDN+'MapleAlmondButterV2_Hero.webp?v=1740067163',                                                     evergreen: '17632106-purely-elizabeth-ancient-grain-granola-maple-almond-butter-10-oz' },
+  { name: 'Pumpkin Cinnamon Ancient Grain Granola',         tag: 'Ancient Grain', size: '12 oz', id: 104771,   img: CDN+'PumpkinCinnamon_Hero.webp?v=1737667926',                                                         evergreen: '104771-purely-elizabeth-ancient-grain-granola-pumpkin-cinnamon-12-oz' },
+  // Protein Oatmeal
+  { name: 'Maple Cinnamon Roll Protein Oatmeal',    tag: 'Protein Oatmeal',   size: '8.3 oz', id: 74974608, img: CDN+'ProteinOatmealCupV1.1_ProteinOat_MCR_Hero.webp?v=1774371696',                                    evergreen: '74974608-purz-mplcin-otml-76z' },
+  { name: 'Apple Harvest Crumble Protein Oatmeal',  tag: 'Protein Oatmeal',   size: '8.3 oz', id: 75086124, img: CDN+'ProteinOatmealCupV1.1_ProteinOat_ACH_Hero.webp?v=1774371927',                                   evergreen: '75086124-purely-elizabeth-protein-apple-harvest-crumble-instant-oatmeal' },
+  // Superfood Oatmeal
+  { name: 'Original Superfood Oatmeal Pouch',       tag: 'Superfood Oatmeal', size: '10 oz', id: 135058,   img: CDN+'220z_Oatmeal_Original_Pouch_V1.1_Hero.webp?v=1782494066',                                         evergreen: '135058-purely-elizabeth-superfood-oatmeal-original-10-oz' },
+  // Cereal
+  { name: 'Cinnamon Raisin Almond Superfood Cereal', tag: 'Cereal',            size: '11 oz', id: 41052867, img: CDN+'CinnamonRaisinAlmondV3.1_Hero_0faf22eb-160f-40d1-a027-e241bb011170.webp?v=1777048187',            evergreen: '41052867-purely-elizabeth-cinnamon-raisin-cereal-11-oz' },
+  { name: 'Chocolate Almond Superfood Cereal',        tag: 'Cereal',            size: '11 oz', id: 27924696, img: CDN+'ChocolateAlmondV3.1_Hero_b607ef3b-3618-472e-90f8-fb5953e804d4.webp?v=1777048202',               evergreen: '27924696-purely-elizabeth-vanilla-blueberry-almond-cereal-11-oz' },
 ];
 
+// Unique categories in display order
+const CATEGORIES = ['All', ...([...new Set(PE_PRODUCTS.map(p => p.tag))])];
+
 let currentPostalCode = null;
-let shopAllUrl = null;
+let shopAllUrl        = null;
+let allRetailers      = [];
+let userLocation      = null;   // { lat, lng } — set from GPS or ZIP geocode
+let activeCat         = 'All';
 
 function setStatus(msg) { document.getElementById('status').textContent = msg; }
 
+// ── Haversine distance (miles) ────────────────────────────────────────────────
+function haversine(lat1, lng1, lat2, lng2) {
+  const R = 3958.8, toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1), dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.asin(Math.sqrt(a));
+}
+
+// ── Forward-geocode ZIP → lat/lng via Nominatim ───────────────────────────────
+async function geocodeZip(zip) {
+  try {
+    const r = await fetch(
+      `https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=US&format=json&limit=1&email=tech@purelyelizabeth.com`,
+      { headers: { 'Accept-Language': 'en' } }
+    );
+    const d = await r.json();
+    if (d.length) return { lat: parseFloat(d[0].lat), lng: parseFloat(d[0].lon) };
+  } catch {}
+  return null;
+}
+
+// ── Find nearest branch of a store chain via Nominatim ───────────────────────
+async function findStoreNear(storeName, lat, lng) {
+  const delta = 0.6; // ~40 mile bounding box
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?` +
+      `q=${encodeURIComponent(storeName)}&format=json&limit=5&countrycodes=us` +
+      `&viewbox=${lng-delta},${lat+delta},${lng+delta},${lat-delta}&bounded=1` +
+      `&email=tech@purelyelizabeth.com`;
+    const r   = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+    const res = await r.json();
+    if (!res.length) return null;
+    let best = null, minDist = Infinity;
+    for (const loc of res) {
+      const d = haversine(lat, lng, parseFloat(loc.lat), parseFloat(loc.lon));
+      if (d < minDist) { minDist = d; best = d; }
+    }
+    return best; // distance in miles
+  } catch { return null; }
+}
+
+// ── After initial render, look up distances and re-sort ───────────────────────
+async function enrichWithDistances(retailers) {
+  if (!userLocation) return;
+  const { lat, lng } = userLocation;
+
+  // Parallel lookups — all stores at once
+  const dists = await Promise.all(
+    retailers.map(r => findStoreNear(r.name, lat, lng))
+  );
+
+  // Attach distances
+  const enriched = retailers.map((r, i) => ({ ...r, _dist: dists[i] }));
+
+  // Sort: known distances first (ascending), unknowns last
+  enriched.sort((a, b) => {
+    if (a._dist == null && b._dist == null) return 0;
+    if (a._dist == null) return 1;
+    if (b._dist == null) return -1;
+    return a._dist - b._dist;
+  });
+
+  allRetailers = enriched;
+  renderResults(enriched, currentPostalCode, true); // true = skip re-enrichment
+}
+
+// ── Location / ZIP entry ──────────────────────────────────────────────────────
 function useLocation() {
   const btn = document.getElementById('locate-btn');
-  btn.disabled = true;
-  btn.textContent = 'Locating…';
+  btn.disabled = true; btn.textContent = 'Locating…';
   setStatus('Requesting location access…');
 
   if (!navigator.geolocation) {
     setStatus('Geolocation not supported. Please enter a ZIP code.');
-    btn.disabled = false; btn.textContent = '📍 Use my location';
-    return;
+    btn.disabled = false; btn.textContent = '📍 Use my location'; return;
   }
 
   navigator.geolocation.getCurrentPosition(
     async pos => {
+      userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
       setStatus('Got your location — finding ZIP code…');
-      const zip = await reverseGeocode(pos.coords.latitude, pos.coords.longitude);
+      const zip = await reverseGeocode(userLocation.lat, userLocation.lng);
       btn.disabled = false; btn.textContent = '📍 Use my location';
-      if (zip) {
-        document.getElementById('zip-input').value = zip;
-        loadRetailers(zip);
-      } else {
-        setStatus('Could not determine ZIP code. Please enter it manually.');
-      }
+      if (zip) { document.getElementById('zip-input').value = zip; loadRetailers(zip); }
+      else setStatus('Could not determine ZIP code. Please enter it manually.');
     },
     err => {
-      const msgs = { 1: 'Location access denied.', 2: 'Location unavailable.', 3: 'Request timed out.' };
+      const msgs = { 1:'Location access denied.', 2:'Location unavailable.', 3:'Request timed out.' };
       setStatus((msgs[err.code] || 'Location error.') + ' Please enter a ZIP code.');
       btn.disabled = false; btn.textContent = '📍 Use my location';
     },
@@ -397,9 +393,12 @@ function useLocation() {
   );
 }
 
-function useZip() {
+async function useZip() {
   const zip = document.getElementById('zip-input').value.trim();
   if (!/^\d{5}$/.test(zip)) { setStatus('Please enter a valid 5-digit ZIP code.'); return; }
+  // Forward-geocode ZIP so we can calculate distances
+  const loc = await geocodeZip(zip);
+  if (loc) userLocation = loc;
   loadRetailers(zip);
 }
 
@@ -425,24 +424,39 @@ async function loadRetailers(postalCode) {
   try {
     const r = await fetch(`${BASE_URL}/retailers?postal_code=${postalCode}&country_code=US`, { headers: HEADERS });
     const d = await r.json();
-    renderResults(d.retailers || [], postalCode);
+    renderResults(d.retailers || [], postalCode, false);
   } catch {
     el.innerHTML = '<div class="empty-msg">Failed to load. Please try again.</div>';
   }
 }
 
-let allRetailers = [];
+// ── Retailer card HTML ────────────────────────────────────────────────────────
+function retailerCardHTML(r, idx) {
+  const key      = r.retailer_key || '';
+  const distHtml = r._dist != null
+    ? `<span class="retailer-dist">${r._dist.toFixed(1)} mi</span>`
+    : `<span class="retailer-dist loading" id="dist-${key}">…</span>`;
 
-function retailerCardHTML(r) {
-  const key = r.retailer_key || '';
+  // Rotate 3 product thumbnails per store card (different starting point per store)
+  const thumbStart = idx % PE_PRODUCTS.length;
+  const thumbs = [0, 1, 2].map(i => PE_PRODUCTS[(thumbStart + i) % PE_PRODUCTS.length]);
+  const thumbHTML = thumbs.map(p =>
+    `<img class="mini-thumb" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">`
+  ).join('');
+
   return `
     <div class="retailer-card" onclick="openRetailerLink('${key}')">
       <div class="retailer-card-top">
         <img class="retailer-logo" src="${r.retailer_logo_url || ''}" alt="${r.name}" onerror="this.style.display='none'">
-        <div>
+        <div class="retailer-info">
           <div class="retailer-name">${r.name}</div>
           <div class="retailer-meta">Available on Instacart</div>
         </div>
+        ${distHtml}
+      </div>
+      <div class="retailer-products">
+        ${thumbHTML}
+        <span class="mini-more">PE products →</span>
       </div>
       <button class="retailer-shop-btn" onclick="event.stopPropagation();openRetailerLink('${key}')">
         Shop Purely Elizabeth →
@@ -450,63 +464,47 @@ function retailerCardHTML(r) {
     </div>`;
 }
 
-function renderResults(retailers, postalCode) {
-  const el = document.getElementById('results');
-  allRetailers = retailers;
+// ── Main render ───────────────────────────────────────────────────────────────
+function renderResults(retailers, postalCode, skipEnrich) {
+  const el      = document.getElementById('results');
+  allRetailers  = retailers;
+  const initial = retailers.slice(0, 4);
+  const rest    = retailers.slice(4, 20);
 
-  if (!retailers.length) {
+  if (!initial.length) {
     el.innerHTML = `<div class="empty-msg">No Instacart retailers found near ${postalCode}.</div>` + productSectionHTML();
     return;
   }
 
-  const initial = retailers.slice(0, 4);
-  const remaining = retailers.slice(4, 20);
-
   el.innerHTML = `
     <div class="section-hd">
       <h3>Stores near ${postalCode}</h3>
-      <span>${retailers.length} retailers on Instacart</span>
+      <span>${retailers.length} Instacart retailers</span>
     </div>
     <button class="shop-all-btn" onclick="openShopAll(this)">
       🛒 Shop all Purely Elizabeth on Instacart →
     </button>
     <div class="retailer-grid" id="retailer-grid">
-      ${initial.map(retailerCardHTML).join('')}
+      ${initial.map((r, i) => retailerCardHTML(r, i)).join('')}
     </div>
-    ${remaining.length ? `
+    ${rest.length ? `
     <button class="expand-btn" id="expand-btn" onclick="expandStores()">
-      ↓ Show ${remaining.length} more stores nearby
+      ↓ Show ${rest.length} more stores nearby
     </button>` : '<div style="margin-bottom:32px"></div>'}
 
     <hr class="section-divider">
     ${productSectionHTML()}`;
-}
 
-function productSectionHTML() {
-  return `
-    <div class="section-hd">
-      <h3>Shop Purely Elizabeth</h3>
-      <span>Tap any product to view on Instacart</span>
-    </div>
-    <div class="product-grid">
-      ${PE_PRODUCTS.map(p => `
-        <a class="product-card" href="https://www.instacart.com/products/${p.evergreen}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
-          <img class="product-card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.background='#f0ece6'">
-          <div class="product-card-body">
-            <div class="product-card-tag">${p.tag}</div>
-            <div class="product-card-name">${p.name}</div>
-            <div class="product-card-size">${p.size}</div>
-            <div class="product-card-cta">View on Instacart →</div>
-          </div>
-        </a>`).join('')}
-    </div>`;
+  // Kick off distance enrichment in background (only on first load)
+  if (!skipEnrich) enrichWithDistances(retailers);
 }
 
 function expandStores() {
   const grid = document.getElementById('retailer-grid');
   const btn  = document.getElementById('expand-btn');
-  const extra = allRetailers.slice(4, 20);
-  extra.forEach(r => grid.insertAdjacentHTML('beforeend', retailerCardHTML(r)));
+  allRetailers.slice(4, 20).forEach((r, i) => {
+    grid.insertAdjacentHTML('beforeend', retailerCardHTML(r, 4 + i));
+  });
   if (btn) btn.remove();
 }
 
@@ -515,18 +513,15 @@ function openRetailerLink(retailerKey) {
   window.open(`https://www.instacart.com/store/${retailerKey}/s?k=purely+elizabeth`, '_blank');
 }
 
+// ── Shop all (API, uses exact product IDs) ────────────────────────────────────
 async function openShopAll(btn) {
   if (shopAllUrl) { window.open(shopAllUrl, '_blank'); return; }
-
   const orig = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = '⏳ Building cart…';
-
+  btn.disabled = true; btn.textContent = '⏳ Building cart…';
   try {
     const body = {
       title: 'Purely Elizabeth Products',
       landing_page_configuration: { partner_linkback_url: 'https://purelyelizabeth.com' },
-      // Use scraped Instacart product IDs for exact matching
       line_items: PE_PRODUCTS.map(p => ({ product_ids: [p.id], quantity: 1 })),
       expires_in: 365,
     };
@@ -537,19 +532,54 @@ async function openShopAll(btn) {
     if (d.products_link_url) {
       shopAllUrl = d.products_link_url;
       window.open(shopAllUrl, '_blank');
-    } else {
-      btn.textContent = 'Try again';
-      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
-      return;
-    }
+    } else { throw new Error(); }
   } catch {
     btn.textContent = 'Error — try again';
-    setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
-    return;
+    setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000); return;
   }
+  btn.textContent = orig; btn.disabled = false;
+}
 
-  btn.textContent = orig;
-  btn.disabled = false;
+// ── Product section with category tabs ───────────────────────────────────────
+function productSectionHTML() {
+  const tabs = CATEGORIES.map(cat =>
+    `<button class="cat-tab${cat === activeCat ? ' active' : ''}" onclick="filterProducts('${cat}')">${cat}</button>`
+  ).join('');
+
+  const cards = PE_PRODUCTS.map(p => `
+    <a class="product-card" href="https://www.instacart.com/products/${p.evergreen}"
+       target="_blank" rel="noopener"
+       data-cat="${p.tag}"
+       ${activeCat !== 'All' && p.tag !== activeCat ? 'hidden' : ''}>
+      <img class="product-card-img" src="${p.img}" alt="${p.name}" loading="lazy"
+           onerror="this.style.background='#f0ece6'">
+      <div class="product-card-body">
+        <div class="product-card-tag">${p.tag}</div>
+        <div class="product-card-name">${p.name}</div>
+        <div class="product-card-size">${p.size}</div>
+        <div class="product-card-cta">View on Instacart →</div>
+      </div>
+    </a>`).join('');
+
+  return `
+    <div class="section-hd">
+      <h3>Shop Purely Elizabeth</h3>
+      <span>Tap any product to view on Instacart</span>
+    </div>
+    <div class="cat-tabs">${tabs}</div>
+    <div class="product-grid" id="product-grid">${cards}</div>`;
+}
+
+function filterProducts(cat) {
+  activeCat = cat;
+  // Update tab active states
+  document.querySelectorAll('.cat-tab').forEach(t => {
+    t.classList.toggle('active', t.textContent === cat);
+  });
+  // Show/hide cards
+  document.querySelectorAll('#product-grid .product-card').forEach(card => {
+    card.hidden = (cat !== 'All' && card.dataset.cat !== cat);
+  });
 }
 
 document.getElementById('zip-input').addEventListener('keydown', e => { if (e.key === 'Enter') useZip(); });
