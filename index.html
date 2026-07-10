@@ -237,21 +237,23 @@
     flex: 1;
     margin-bottom: 10px;
   }
-  .product-card-btn {
+  .product-card-size {
+    font-size: 0.68rem;
+    color: #8a7a70;
+    margin-bottom: 8px;
+  }
+  .product-card-cta {
     display: block;
     width: 100%;
     background: #43A047;
     color: #fff;
-    border: none;
     border-radius: 8px;
     padding: 8px 4px;
     font-size: 0.74rem;
     font-weight: 700;
-    cursor: pointer;
-    transition: background 0.15s;
+    text-align: center;
   }
-  .product-card-btn:hover    { background: #388E3C; }
-  .product-card-btn:disabled { background: #aaa; cursor: default; }
+  .product-card:hover .product-card-cta { background: #388E3C; }
 
   .loading   { text-align: center; padding: 40px; color: #8a7a70; }
   .empty-msg { text-align: center; color: #8a7a70; padding: 40px 0; font-size: 0.88rem; }
@@ -296,59 +298,69 @@ const HEADERS  = { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'applic
 
 const CDN = 'https://cdn.shopify.com/s/files/1/0264/3725/5250/files/';
 
+// Scraped 2026-07-10 — 49 products. Featured 8 shown in grid.
+// evergreen field = Instacart product slug → direct product URL, no API call needed.
 const PE_PRODUCTS = [
   {
     name: 'Peanut Butter Cookie Granola',
-    tag: 'Cookie Granola',
+    tag: 'Cookie Granola', size: '11 oz',
     img: CDN + 'PBCookieV2_Hero.webp?v=1749060545',
-    query: 'Peanut Butter Cookie Granola',
+    id: 55766632,
+    evergreen: '55766632-purely-elizabeth-peanut-butter-recipe-no-37-cookie-granola-11-oz',
+  },
+  {
+    name: 'Chocolate Chip Cookie Granola',
+    tag: 'Cookie Granola', size: '11 oz',
+    img: CDN + 'CookieVarietyV2_Hero.webp?v=1749060842',
+    id: 41662372,
+    evergreen: '41662372-purely-elizabeth-cookie-granola-chocolate-chip-1-bags',
   },
   {
     name: 'Dark Chocolate Blueberry Protein Granola',
-    tag: 'Protein Granola',
+    tag: 'Protein Granola', size: '8 oz',
     img: CDN + 'ProteinG_DarkChocolateBlueberry_V1_Hero.webp?v=1774023806',
-    query: 'Dark Chocolate Blueberry Protein Granola',
+    id: 105690200,
+    evergreen: '105690200-purely-eliza-dark-c-8-oz',
   },
   {
-    name: 'Chocolate Peanut Butter Ancient Grain Granola',
-    tag: 'Ancient Grain Granola',
-    img: CDN + 'ChocolatPeanutButterV2_Hero.webp?v=1748031191',
-    query: 'Chocolate Peanut Butter Granola',
+    name: 'Almond Butter & Berries Protein Granola',
+    tag: 'Protein Granola', size: '8 oz',
+    img: CDN + 'ProteinG_AlmondButterBerries_V1_Hero.webp?v=1774023586',
+    id: 109829841,
+    evergreen: '109829841-purely-elizabeth-protein-ancient-grain-almond-butter-berries-granola-8-0-oz',
   },
   {
-    name: 'Maple Almond Butter Ancient Grain Granola',
-    tag: 'Ancient Grain Granola',
-    img: CDN + 'MapleAlmondButterV2_Hero.webp?v=1740067163',
-    query: 'Maple Almond Butter Granola',
-  },
-  {
-    name: 'Maple Cinnamon Roll Protein Oatmeal Cup',
-    tag: 'Protein Oatmeal',
+    name: 'Maple Cinnamon Roll Protein Oatmeal',
+    tag: 'Protein Oatmeal', size: '8.3 oz',
     img: CDN + 'ProteinOatmealCupV1.1_ProteinOat_MCR_Hero.webp?v=1774371696',
-    query: 'Maple Cinnamon Roll Protein Oatmeal',
+    id: 74974608,
+    evergreen: '74974608-purz-mplcin-otml-76z',
   },
   {
-    name: 'Apple Harvest Crumble Protein Oatmeal Cup',
-    tag: 'Protein Oatmeal',
+    name: 'Apple Harvest Crumble Protein Oatmeal',
+    tag: 'Protein Oatmeal', size: '8.3 oz',
     img: CDN + 'ProteinOatmealCupV1.1_ProteinOat_ACH_Hero.webp?v=1774371927',
-    query: 'Apple Harvest Crumble Protein Oatmeal',
+    id: 75086124,
+    evergreen: '75086124-purely-elizabeth-protein-apple-harvest-crumble-instant-oatmeal',
   },
   {
     name: 'Original Superfood Oatmeal Pouch',
-    tag: 'Superfood Oatmeal',
+    tag: 'Superfood Oatmeal', size: '10 oz',
     img: CDN + '220z_Oatmeal_Original_Pouch_V1.1_Hero.webp?v=1782494066',
-    query: 'Original Superfood Oatmeal',
+    id: 135058,
+    evergreen: '135058-purely-elizabeth-superfood-oatmeal-original-10-oz',
   },
   {
     name: 'Cinnamon Raisin Almond Superfood Cereal',
-    tag: 'Superfood Cereal',
+    tag: 'Superfood Cereal', size: '11 oz',
     img: CDN + 'CinnamonRaisinAlmondV3.1_Hero_0faf22eb-160f-40d1-a027-e241bb011170.webp?v=1777048187',
-    query: 'Cinnamon Raisin Almond Cereal',
+    id: 41052867,
+    evergreen: '41052867-purely-elizabeth-cinnamon-raisin-cereal-11-oz',
   },
 ];
 
 let currentPostalCode = null;
-const productLinkCache = new Map();
+let shopAllUrl = null;
 
 function setStatus(msg) { document.getElementById('status').textContent = msg; }
 
@@ -404,6 +416,7 @@ async function reverseGeocode(lat, lng) {
 
 async function loadRetailers(postalCode) {
   currentPostalCode = postalCode;
+  shopAllUrl = null;
   setStatus('');
   const el = document.getElementById('results');
   el.style.display = 'block';
@@ -473,20 +486,19 @@ function productSectionHTML() {
   return `
     <div class="section-hd">
       <h3>Shop Purely Elizabeth</h3>
-      <span>Tap any product to add to your Instacart cart</span>
+      <span>Tap any product to view on Instacart</span>
     </div>
     <div class="product-grid">
-      ${PE_PRODUCTS.map((p, i) => `
-        <div class="product-card">
-          <img class="product-card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.background='#f0ece6';this.style.minHeight='100px'">
+      ${PE_PRODUCTS.map(p => `
+        <a class="product-card" href="https://www.instacart.com/products/${p.evergreen}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+          <img class="product-card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.background='#f0ece6'">
           <div class="product-card-body">
             <div class="product-card-tag">${p.tag}</div>
             <div class="product-card-name">${p.name}</div>
-            <button class="product-card-btn" onclick="openProductLink(${i}, this)">
-              Add to Instacart →
-            </button>
+            <div class="product-card-size">${p.size}</div>
+            <div class="product-card-cta">View on Instacart →</div>
           </div>
-        </div>`).join('')}
+        </a>`).join('')}
     </div>`;
 }
 
@@ -504,18 +516,18 @@ function openRetailerLink(retailerKey) {
 }
 
 async function openShopAll(btn) {
-  const cacheKey = '__all__';
-  if (productLinkCache.has(cacheKey)) { window.open(productLinkCache.get(cacheKey), '_blank'); return; }
+  if (shopAllUrl) { window.open(shopAllUrl, '_blank'); return; }
 
   const orig = btn.textContent;
   btn.disabled = true;
-  btn.textContent = '⏳ Generating cart…';
+  btn.textContent = '⏳ Building cart…';
 
   try {
     const body = {
       title: 'Purely Elizabeth Products',
       landing_page_configuration: { partner_linkback_url: 'https://purelyelizabeth.com' },
-      line_items: PE_PRODUCTS.map(p => ({ name: p.query, quantity: 1, filters: { brand_filters: ['Purely Elizabeth'] } })),
+      // Use scraped Instacart product IDs for exact matching
+      line_items: PE_PRODUCTS.map(p => ({ product_ids: [p.id], quantity: 1 })),
       expires_in: 365,
     };
     const r = await fetch(`${BASE_URL}/products/products_link`, {
@@ -523,8 +535,8 @@ async function openShopAll(btn) {
     });
     const d = await r.json();
     if (d.products_link_url) {
-      productLinkCache.set(cacheKey, d.products_link_url);
-      window.open(d.products_link_url, '_blank');
+      shopAllUrl = d.products_link_url;
+      window.open(shopAllUrl, '_blank');
     } else {
       btn.textContent = 'Try again';
       setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
@@ -532,45 +544,6 @@ async function openShopAll(btn) {
     }
   } catch {
     btn.textContent = 'Error — try again';
-    setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
-    return;
-  }
-
-  btn.textContent = orig;
-  btn.disabled = false;
-}
-
-async function openProductLink(idx, btn) {
-  const product = PE_PRODUCTS[idx];
-  const cacheKey = product.query;
-
-  if (productLinkCache.has(cacheKey)) { window.open(productLinkCache.get(cacheKey), '_blank'); return; }
-
-  const orig = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'Loading…';
-
-  try {
-    const body = {
-      title: product.name,
-      landing_page_configuration: { partner_linkback_url: 'https://purelyelizabeth.com' },
-      line_items: [{ name: product.query, quantity: 1, filters: { brand_filters: ['Purely Elizabeth'] } }],
-      expires_in: 365,
-    };
-    const r = await fetch(`${BASE_URL}/products/products_link`, {
-      method: 'POST', headers: HEADERS, body: JSON.stringify(body)
-    });
-    const d = await r.json();
-    if (d.products_link_url) {
-      productLinkCache.set(cacheKey, d.products_link_url);
-      window.open(d.products_link_url, '_blank');
-    } else {
-      btn.textContent = 'Try again';
-      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
-      return;
-    }
-  } catch {
-    btn.textContent = 'Error';
     setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
     return;
   }
