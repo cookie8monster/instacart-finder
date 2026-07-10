@@ -1,0 +1,678 @@
+[
+  {
+    "retailer_key": "myrtle-farmers-market",
+    "name": "Myrtle Farmers Market"
+  },
+  {
+    "retailer_key": "checos-food-universe",
+    "name": "Checo's Food Universe"
+  },
+  {
+    "retailer_key": "prospect-market",
+    "name": "Prospect Market"
+  },
+  {
+    "retailer_key": "brooklyn-farm-marketplace",
+    "name": "Brooklyn Farm Marketplace"
+  },
+  {
+    "retailer_key": "sedgwick-marketplace",
+    "name": "Sedgwick Marketplace"
+  },
+  {
+    "retailer_key": "global-farm-marketplace",
+    "name": "Global Farm Marketplace"
+  },
+  {
+    "retailer_key": "franks-market",
+    "name": "Franks Market"
+  },
+  {
+    "retailer_key": "55-fulton-market",
+    "name": "55 Fulton Market"
+  },
+  {
+    "retailer_key": "greenbay-marketplace",
+    "name": "Greenbay Marketplace"
+  },
+  {
+    "retailer_key": "kings-food-markets",
+    "name": "Kings Food Markets"
+  },
+  {
+    "retailer_key": "balduccis",
+    "name": "Balducci's"
+  },
+  {
+    "retailer_key": "k-slope-marketplace",
+    "name": "K-Slope Marketplace"
+  },
+  {
+    "retailer_key": "heavenly-food-market",
+    "name": "Heavenly Food Market"
+  },
+  {
+    "retailer_key": "acme-markets",
+    "name": "ACME Markets"
+  },
+  {
+    "retailer_key": "key-food",
+    "name": "Key Food"
+  },
+  {
+    "retailer_key": "greene-grape",
+    "name": "Greene Grape Provisions"
+  },
+  {
+    "retailer_key": "westside-market",
+    "name": "Westside Market"
+  },
+  {
+    "retailer_key": "vitelios-marketplace",
+    "name": "Vitelio's Marketplace"
+  },
+  {
+    "retailer_key": "food-universe",
+    "name": "Food Universe"
+  },
+  {
+    "retailer_key": "windsor-farms",
+    "name": "Windsor Farms"
+  },
+  {
+    "retailer_key": "food-cellar",
+    "name": "Foodcellar Market"
+  },
+  {
+    "retailer_key": "fresh-n-save",
+    "name": "Fresh N Save"
+  },
+  {
+    "retailer_key": "shoprite",
+    "name": "ShopRite"
+  },
+  {
+    "retailer_key": "sprouts",
+    "name": "Sprouts Farmers Market"
+  },
+  {
+    "retailer_key": "urban-market",
+    "name": "Urban Market"
+  },
+  {
+    "retailer_key": "wegmans",
+    "name": "Wegmans"
+  },
+  {
+    "retailer_key": "stop-shop",
+    "name": "Stop & Shop"
+  },
+  {
+    "retailer_key": "mulberry-market",
+    "name": "Mulberry Market"
+  },
+  {
+    "retailer_key": "dagnyc",
+    "name": "D'Agostino"
+  },
+  {
+    "retailer_key": "the-fresh-market",
+    "name": "The Fresh Market"
+  },
+  {
+    "retailer_key": "dumbo-market",
+    "name": "Dumbo Market"
+  },
+  {
+    "retailer_key": "manor-market",
+    "name": "Manor Market"
+  },
+  {
+    "retailer_key": "billys-marketplace",
+    "name": "Billy's Marketplace"
+  },
+  {
+    "retailer_key": "king-kullen",
+    "name": "King Kullen"
+  },
+  {
+    "retailer_key": "giuseppes",
+    "name": "Uncle Giuseppe's Marketplace"
+  },
+  {
+    "retailer_key": "waverly-gourmet-market",
+    "name": "Waverly Gourmet Market"
+  },
+  {
+    "retailer_key": "brooklyn-harvest",
+    "name": "Brooklyn Harvest"
+  },
+  {
+    "retailer_key": "morton-williams-supermarket",
+    "name": "Morton Williams Supermarket"
+  },
+  {
+    "retailer_key": "deciccos",
+    "name": "DeCicco & Sons"
+  },
+  {
+    "retailer_key": "brooklyn-fare",
+    "name": "Brooklyn Fare"
+  },
+  {
+    "retailer_key": "big-deal-food-market",
+    "name": "Big Deal Food Market"
+  },
+  {
+    "retailer_key": "country-market",
+    "name": "Country Market"
+  },
+  {
+    "retailer_key": "the-fresh-grocer",
+    "name": "The Fresh Grocer"
+  },
+  {
+    "retailer_key": "deans-natural-foods",
+    "name": "Greens Natural Foods"
+  },
+  {
+    "retailer_key": "target-corp",
+    "name": "Target"
+  },
+  {
+    "retailer_key": "gristedes",
+    "name": "Gristedes"
+  },
+  {
+    "retailer_key": "food-way",
+    "name": "Food Way"
+  },
+  {
+    "retailer_key": "fairway",
+    "name": "Fairway"
+  },
+  {
+    "retailer_key": "howard-avenue-market",
+    "name": "Howard Avenue Market"
+  },
+  {
+    "retailer_key": "food-train-market",
+    "name": "Food Train Market"
+  },
+  {
+    "retailer_key": "cityacresmarket",
+    "name": "City Acres Market"
+  },
+  {
+    "retailer_key": "lincoln-market",
+    "name": "Lincoln Market"
+  },
+  {
+    "retailer_key": "trade-fair-supermarket",
+    "name": "Trade Fair Supermarket"
+  },
+  {
+    "retailer_key": "gourmet-fresh",
+    "name": "Gourmet Fresh"
+  },
+  {
+    "retailer_key": "pioneer-supermarket-on-parkside-ave",
+    "name": "Pioneer Parkside Ave"
+  },
+  {
+    "retailer_key": "westerly-natural-market",
+    "name": "Westerly Natural Market"
+  },
+  {
+    "retailer_key": "food-garden-market",
+    "name": "Food Garden Market"
+  },
+  {
+    "retailer_key": "astoria-marketplace",
+    "name": "Astoria Marketplace"
+  },
+  {
+    "retailer_key": "nyack-fresh-market",
+    "name": "Nyack Fresh Market"
+  },
+  {
+    "retailer_key": "extra-jumbo",
+    "name": "Extra Jumbo by Associated"
+  },
+  {
+    "retailer_key": "dekalb-fresh-market",
+    "name": "Dekalb Fresh Market"
+  },
+  {
+    "retailer_key": "pavilions",
+    "name": "Pavilions"
+  },
+  {
+    "retailer_key": "erewhon",
+    "name": "Erewhon"
+  },
+  {
+    "retailer_key": "gelsons",
+    "name": "Gelson's"
+  },
+  {
+    "retailer_key": "co-opportunity",
+    "name": "Co-opportunity Market"
+  },
+  {
+    "retailer_key": "mothers-market",
+    "name": "Mother's Market"
+  },
+  {
+    "retailer_key": "vons",
+    "name": "Vons"
+  },
+  {
+    "retailer_key": "fresco-community-market",
+    "name": "Fresco Community Market"
+  },
+  {
+    "retailer_key": "lazy-acres",
+    "name": "Lazy Acres"
+  },
+  {
+    "retailer_key": "bristol-farms",
+    "name": "Bristol Farms"
+  },
+  {
+    "retailer_key": "lassens-natural-foods-vitamins",
+    "name": "Lassens Natural Foods & Vitamins"
+  },
+  {
+    "retailer_key": "jewel-osco",
+    "name": "Jewel-Osco"
+  },
+  {
+    "retailer_key": "kroger",
+    "name": "Kroger"
+  },
+  {
+    "retailer_key": "tonys-fresh-market",
+    "name": "Tony's Fresh Market"
+  },
+  {
+    "retailer_key": "standard-market",
+    "name": "Standard Market"
+  },
+  {
+    "retailer_key": "pick-n-save",
+    "name": "Pick 'n Save"
+  },
+  {
+    "retailer_key": "petes-fresh-market",
+    "name": "Pete's Market"
+  },
+  {
+    "retailer_key": "meijer",
+    "name": "Meijer"
+  },
+  {
+    "retailer_key": "fresh-thyme-farmers-market",
+    "name": "Fresh Thyme Market"
+  },
+  {
+    "retailer_key": "agora-market",
+    "name": "Agora Market"
+  },
+  {
+    "retailer_key": "caputos-fresh-markets",
+    "name": "Caputo's Fresh Markets"
+  },
+  {
+    "retailer_key": "the-grand-food-center",
+    "name": "The Grand Food Center"
+  },
+  {
+    "retailer_key": "h-e-b",
+    "name": "H-E-B"
+  },
+  {
+    "retailer_key": "central-market",
+    "name": "Central Market"
+  },
+  {
+    "retailer_key": "randalls",
+    "name": "Randalls"
+  },
+  {
+    "retailer_key": "safeway",
+    "name": "Safeway"
+  },
+  {
+    "retailer_key": "natural-grocers",
+    "name": "Natural Grocers"
+  },
+  {
+    "retailer_key": "frys",
+    "name": "Fry's"
+  },
+  {
+    "retailer_key": "bashas",
+    "name": "Bashas'"
+  },
+  {
+    "retailer_key": "ajs-fine-foods",
+    "name": "AJ's Fine Foods"
+  },
+  {
+    "retailer_key": "food-lion",
+    "name": "Food Lion"
+  },
+  {
+    "retailer_key": "giant",
+    "name": "Giant Food"
+  },
+  {
+    "retailer_key": "the-richmond-shops",
+    "name": "The Richmond Shops"
+  },
+  {
+    "retailer_key": "giant-food-stores",
+    "name": "GIANT"
+  },
+  {
+    "retailer_key": "martins",
+    "name": "MARTIN'S"
+  },
+  {
+    "retailer_key": "mccaffreys",
+    "name": "McCaffrey's"
+  },
+  {
+    "retailer_key": "giant-heirloom-market",
+    "name": "GIANT Heirloom Market"
+  },
+  {
+    "retailer_key": "weis-markets",
+    "name": "Weis Markets"
+  },
+  {
+    "retailer_key": "murphys-fresh-markets",
+    "name": "Murphy's Fresh Markets"
+  },
+  {
+    "retailer_key": "jimbos",
+    "name": "Jimbo's"
+  },
+  {
+    "retailer_key": "seaside-market",
+    "name": "Seaside Market"
+  },
+  {
+    "retailer_key": "sprouts-chula-vista",
+    "name": "Sprouts Farmers Market Chula Vista"
+  },
+  {
+    "retailer_key": "windmill-farms",
+    "name": "Windmill Farms"
+  },
+  {
+    "retailer_key": "jensens-finest-foods-san-diego",
+    "name": "Jensen's Finest Foods"
+  },
+  {
+    "retailer_key": "valley-farm-market",
+    "name": "Valley Farm Market"
+  },
+  {
+    "retailer_key": "tom-thumb",
+    "name": "Tom Thumb"
+  },
+  {
+    "retailer_key": "homeland",
+    "name": "Homeland"
+  },
+  {
+    "retailer_key": "market-street",
+    "name": "Market Street"
+  },
+  {
+    "retailer_key": "fresh-by-brookshires",
+    "name": "FRESH by Brookshire's"
+  },
+  {
+    "retailer_key": "anns-natural-grocery",
+    "name": "Ann's"
+  },
+  {
+    "retailer_key": "berkeley-bowl",
+    "name": "Berkeley Bowl"
+  },
+  {
+    "retailer_key": "rainbow-grocery",
+    "name": "Rainbow Grocery"
+  },
+  {
+    "retailer_key": "bianchini",
+    "name": "Bianchini's Market San Carlos"
+  },
+  {
+    "retailer_key": "mollie-stones",
+    "name": "Mollie Stone's Markets"
+  },
+  {
+    "retailer_key": "the-village-market",
+    "name": "The Village Market"
+  },
+  {
+    "retailer_key": "gussmarket",
+    "name": "Gus's Community Market"
+  },
+  {
+    "retailer_key": "andronicos-community-markets",
+    "name": "Andronico's Community Markets"
+  },
+  {
+    "retailer_key": "lunardis-markets",
+    "name": "Lunardi's Markets"
+  },
+  {
+    "retailer_key": "piazzas-fine-foods",
+    "name": "Piazza's Fine Foods"
+  },
+  {
+    "retailer_key": "genes-fine-foods",
+    "name": "Gene's Fine Foods"
+  },
+  {
+    "retailer_key": "raleys",
+    "name": "Raley's"
+  },
+  {
+    "retailer_key": "savemart",
+    "name": "Save Mart"
+  },
+  {
+    "retailer_key": "pak-n-save",
+    "name": "Pak N Save"
+  },
+  {
+    "retailer_key": "o-organics",
+    "name": "O Organics Market"
+  },
+  {
+    "retailer_key": "bianchinis",
+    "name": "Bianchini's Market Portola Valley"
+  },
+  {
+    "retailer_key": "new-leaf-community-markets",
+    "name": "New Leaf Community Markets"
+  },
+  {
+    "retailer_key": "draegers-market",
+    "name": "Draeger's Market"
+  },
+  {
+    "retailer_key": "lucky-supermarkets",
+    "name": "Lucky Supermarkets"
+  },
+  {
+    "retailer_key": "woodlands",
+    "name": "Woodlands"
+  },
+  {
+    "retailer_key": "deluxe-foods-of-aptos",
+    "name": "Deluxe Foods of Aptos"
+  },
+  {
+    "retailer_key": "publix",
+    "name": "Publix"
+  },
+  {
+    "retailer_key": "ingles",
+    "name": "Ingles"
+  },
+  {
+    "retailer_key": "qfc",
+    "name": "QFC"
+  },
+  {
+    "retailer_key": "pcc-community-markets",
+    "name": "PCC Community Markets"
+  },
+  {
+    "retailer_key": "central-coop",
+    "name": "Central Co-op"
+  },
+  {
+    "retailer_key": "fred-meyer",
+    "name": "Fred Meyer"
+  },
+  {
+    "retailer_key": "metropolitan-market",
+    "name": "Metropolitan Market"
+  },
+  {
+    "retailer_key": "haggen",
+    "name": "Haggen"
+  },
+  {
+    "retailer_key": "king-soopers",
+    "name": "King Soopers"
+  },
+  {
+    "retailer_key": "marczyk-fine-foods",
+    "name": "Marczyk Fine Foods"
+  },
+  {
+    "retailer_key": "clarks-market",
+    "name": "Clark's Market"
+  },
+  {
+    "retailer_key": "streets-market",
+    "name": "Streets Market"
+  },
+  {
+    "retailer_key": "harristeeter",
+    "name": "Harris Teeter"
+  },
+  {
+    "retailer_key": "common-market",
+    "name": "Common Market"
+  },
+  {
+    "retailer_key": "giant-eagle",
+    "name": "Giant Eagle"
+  },
+  {
+    "retailer_key": "plum-market",
+    "name": "Plum Market"
+  },
+  {
+    "retailer_key": "milams",
+    "name": "Milam's Markets"
+  },
+  {
+    "retailer_key": "wedge-co-op",
+    "name": "Wedge Co-op"
+  },
+  {
+    "retailer_key": "lakewinds-co-op",
+    "name": "Lakewinds Co-op"
+  },
+  {
+    "retailer_key": "cub",
+    "name": "Cub"
+  },
+  {
+    "retailer_key": "family-fare-supermarkets",
+    "name": "Family Fare Supermarkets"
+  },
+  {
+    "retailer_key": "hy-vee",
+    "name": "Hy-Vee"
+  },
+  {
+    "retailer_key": "family-fresh-market",
+    "name": "Family Fresh Market"
+  },
+  {
+    "retailer_key": "lunds-and-byerlys",
+    "name": "Lunds & Byerlys"
+  },
+  {
+    "retailer_key": "coborns-marketplace",
+    "name": "Coborn's Marketplace"
+  },
+  {
+    "retailer_key": "festival-foods",
+    "name": "Festival Foods"
+  },
+  {
+    "retailer_key": "jerrys-food",
+    "name": "Jerry's Foods"
+  },
+  {
+    "retailer_key": "marketplace-foods",
+    "name": "Marketplace Foods"
+  },
+  {
+    "retailer_key": "kowalskis",
+    "name": "Kowalski's"
+  },
+  {
+    "retailer_key": "fareway-meat-grocery",
+    "name": "Fareway Meat & Grocery"
+  },
+  {
+    "retailer_key": "schnucks",
+    "name": "Schnucks"
+  },
+  {
+    "retailer_key": "my-county-market",
+    "name": "County Market"
+  },
+  {
+    "retailer_key": "dierbergs-markets",
+    "name": "Dierbergs Markets"
+  },
+  {
+    "retailer_key": "new-seasons-market",
+    "name": "New Seasons Market"
+  },
+  {
+    "retailer_key": "world-foods",
+    "name": "World Foods"
+  },
+  {
+    "retailer_key": "maceys",
+    "name": "Macey's"
+  },
+  {
+    "retailer_key": "dans-fresh-market",
+    "name": "Dan's Fresh Market"
+  },
+  {
+    "retailer_key": "dicks-fresh-market",
+    "name": "Dick's Fresh Market"
+  },
+  {
+    "retailer_key": "fresh-market",
+    "name": "Fresh Market"
+  }
+]
